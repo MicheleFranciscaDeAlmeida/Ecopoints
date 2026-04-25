@@ -2,54 +2,67 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>EcoPoints - Sustentabilidade</title>
+    <title>EcoPoints</title>
+    
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0fdf4; /* Verde bem clarinho */
-            color: #166534; /* Verde escuro */
-            text-align: center;
-            padding: 50px;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
         }
         .card {
             background: white;
             padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            max-width: 500px;
-            margin: 0 auto;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
         }
-        h1 { color: #22c55e; }
+        h1 { color: #16a34a; }
         button {
-            background-color: #22c55e;
+            background-color: #16a34a;
             color: white;
             border: none;
             padding: 10px 20px;
             border-radius: 5px;
-            cursor: pointer;
             font-size: 16px;
+            transition: 0.3s;
         }
-        button:hover { background-color: #16a34a; }
+        button:hover { 
+            background-color: #15803d; 
+            cursor: pointer;
+            transform: scale(1.05);
+        }
+        #placar { color: #16a34a; font-size: 1.2em; }
     </style>
 </head>
+
 <body>
 
     <div class="card">
         <h1>EcoPoints ♻️</h1>
         <p>Transforme seu lixo em benefícios reais.</p>
-        
-        <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
-        
-        <h3 style="color: #16a34a;">Tabela de Pontos:</h3>
-        <ul style="text-align: left; list-style: none; padding: 0;">
-            <li>🥫 <strong>Alumínio:</strong> 250 pts/kg</li>
-            <li>🍾 <strong>Vidro:</strong> 80 pts/kg</li>
-            <li>📦 <strong>Papelão:</strong> 50 pts/kg</li>
-        </ul>
-
-        <p><strong>Status:</strong> Projeto iniciado no Hackathon 2026!</p>
-        <button onclick="alert('Boa, Michele! O planeta agradece!')">Começar a Reciclar</button>
+        <p>Seus Pontos: <strong id="placar">0</strong> pts</p>
+        <button id="btnReciclar">Começar a Reciclar</button>
     </div>
+
+    <script>
+        // Lógica de pontos centralizada
+        let pontos = 0; 
+        const placarElemento = document.getElementById('placar');
+        const botao = document.getElementById('btnReciclar');
+
+        botao.addEventListener('click', () => {
+            pontos = pontos + 10; // Soma os pontos
+            placarElemento.innerText = pontos; // Atualiza o texto na tela
+            
+            // Alerta personalizado
+            alert('Boa, Michele! Você ganhou 10 pontos. O planeta agradece! 🌍🎉');
+        });
+    </script>
 
 </body>
 </html>
