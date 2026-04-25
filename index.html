@@ -50,19 +50,24 @@
     </div>
 
     <script>
-        // Lógica de pontos centralizada
-        let pontos = 0; 
-        const placarElemento = document.getElementById('placar');
-        const botao = document.getElementById('btnReciclar');
+    let pontos = 0; 
+    const placarElemento = document.getElementById('placar');
+    const botao = document.getElementById('btnReciclar');
+    const corpoSite = document.body; // Referência para o fundo do site
 
-        botao.addEventListener('click', () => {
-            pontos = pontos + 10; // Soma os pontos
-            placarElemento.innerText = pontos; // Atualiza o texto na tela
-            
-            // Alerta personalizado
+    botao.addEventListener('click', () => {
+        pontos = pontos + 10; 
+        placarElemento.innerText = pontos; 
+
+        // Lógica de mudança de cor
+        if (pontos >= 50) {
+            corpoSite.style.backgroundColor = "#dcfce7"; // Um verde bem clarinho
+            alert('Nível PRO atingido! 🌿 O planeta está sorrindo!');
+        } else {
             alert('Boa, Michele! Você ganhou 10 pontos. O planeta agradece! 🌍🎉');
-        });
-    </script>
+        }
+    });
+</script>
 
 </body>
 </html>
